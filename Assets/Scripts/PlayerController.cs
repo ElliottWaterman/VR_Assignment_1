@@ -28,7 +28,16 @@ public class PlayerController : MonoBehaviour
         // Get back cursor if escape key is pressed
         if (Input.GetKeyDown("escape"))
         {
-            Cursor.lockState = CursorLockMode.None;
+            if (Cursor.lockState == CursorLockMode.Locked)
+            {
+                Debug.Log("Unlocked");
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else if (Cursor.lockState == CursorLockMode.None)
+            {
+                Debug.Log("Locked");
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 }

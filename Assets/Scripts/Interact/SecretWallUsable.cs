@@ -24,6 +24,6 @@ public class SecretWallUsable : UsableObject
     {
         // Display hint! Shh it's a secret!
         this.interactText.enabled = true;
-        this.interactText.text = "...";
+        this.interactText.text = "You feel the urge to interact... (E)";
     }
 }
