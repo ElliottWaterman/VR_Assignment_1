@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class CrossUsable : UsableObject
 {
+    private Light light;
+    
     // Use this for initialization
     void Start()
     {
         this.interactKey = KeyCode.F;
+        light = GetComponent<Light>();
     }
 
     public override void OnUse()
     {
         // Toggle light use
-        this.GetComponent<Light>().enabled = (objectUsed ? false : true);
+        light.enabled = (this.objectUsed ? false : true);
         this.ToggleObjectUsed();
     }
 
