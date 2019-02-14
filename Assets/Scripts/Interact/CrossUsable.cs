@@ -23,6 +23,6 @@ public class CrossUsable : UsableObject
     public override void DisplayText()
     {
         this.interactText.enabled = true;
-        this.interactText.text = "Press " + interactKey.ToString() + " to pay respects";
+        this.interactText.text = "Press " + interactKey.ToString() + " to pray";
     }
 }

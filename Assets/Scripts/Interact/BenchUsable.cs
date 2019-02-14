@@ -31,7 +31,7 @@ public class BenchUsable : UsableObject {
 
         if (objectUsed)
         {
-            Debug.Log(player.transform.localRotation);
+            //Debug.Log(player.transform.localRotation);
             //Debug.Log(player.transform.rotation);
 
             player.transform.position = new Vector3(-47.5978f, 20.14686f, 11.0146f);
@@ -52,7 +52,7 @@ public class BenchUsable : UsableObject {
 
             //mainCamera.transform.localRotation = Quaternion.AngleAxis(0.5f, player.transform.up);
 
-            Debug.Log(player.transform.localRotation);
+            //Debug.Log(player.transform.localRotation);
             //Debug.Log(player.transform.rotation);
         }
         else
