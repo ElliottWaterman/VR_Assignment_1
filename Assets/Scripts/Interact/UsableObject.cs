@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class UsableObject : MonoBehaviour
 {
+    protected const string OPEN_STRING = "Open";
+    protected const string CLOSE_STRING = "Close";
+
     public Text interactText;
 
     // Default interact button

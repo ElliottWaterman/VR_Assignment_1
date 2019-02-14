@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class DoorUsable : UsableObject
 {
-    private const string OPEN_STRING = "Open";
-    private const string CLOSE_STRING = "Close";
-
     private DoorColliderTrigger doorTrigger;
     private Animator animator;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start ()
+    {
         doorTrigger = GetComponentInParent<DoorColliderTrigger>();
         animator = GetComponentInParent<Animator>();
     }
@@ -25,19 +23,25 @@ public class DoorUsable : UsableObject
     {
         // Check collider box in door trigger
         bool playerEntered = doorTrigger.HasPlayerEntered();
-        bool doorOpen = doorTrigger.IsDoorOpen();
+
+        // Door open state has now moved to UsableObject class as objectUsed
+        //bool doorOpen = doorTrigger.IsDoorOpen();
 
         // Door is CLOSED, player is present and pressed E
         if (playerEntered && !objectUsed)
         {
-            objectUsed = !objectUsed;
+            this.ToggleObjectUsed();
+
+            // Set open door function not needed as state is not used see doorOpen above
             doorTrigger.SetDoorOpen(objectUsed);
             DoorAnimationControl(OPEN_STRING);
         }
         // Door is OPEN, player is present and pressed E
         else if (playerEntered && objectUsed)
         {
-            objectUsed = !objectUsed;
+            this.ToggleObjectUsed();
+
+            // Set open door function not needed as state is not used see doorOpen above
             doorTrigger.SetDoorOpen(objectUsed);
             DoorAnimationControl(CLOSE_STRING);
         }

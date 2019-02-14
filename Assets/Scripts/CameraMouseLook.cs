@@ -92,14 +92,12 @@ public class CameraMouseLook : MonoBehaviour
 
     private void CompleteInteractActions(UsableObject interactObject)
     {
-        Debug.Log("Called Display Text on " + interactObject.name);
         // Show interact text on the screen
         interactObject.DisplayText();
 
         // Player has interacted with object using 'E'
         if (Input.GetKeyDown(interactObject.GetInteractKey()))
         {
-            Debug.Log("Called On Use: " + interactObject.name);
             interactObject.OnUse();
         }
     }

@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private const float RUNNING_SPEED = 15.0f;
     private const float WALKING_SPEED = 10.0f;
+    private const float RUNNING_SPEED = WALKING_SPEED * 1.5f;
 
     public float speed = WALKING_SPEED;
+
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         // Lock mouse into game screen
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Get rigidbody component of the player
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -45,6 +50,12 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Cursor Locked - Click mouse in screen");
                 Cursor.lockState = CursorLockMode.Locked;
             }
+        }
+
+        // Pressing space makes player jump
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0.0f, 400.0f, 0.0f));
         }
     }
 }
